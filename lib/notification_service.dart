@@ -1,7 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-/// Local notifications using the flutter_local_notifications package.
+// Browser notifications on the web, nothing on mobile.
+import 'web_notifier_stub.dart'
+    if (dart.library.html) 'web_notifier_web.dart';
+
+/// Notifications for the app.
+///
+/// * Android / iOS: local notifications with flutter_local_notifications.
+/// * Web (Chrome): browser notifications, like the course lab.
 ///
 /// Notifications are created on the device itself, so no server is needed.
 class NotificationService {
@@ -42,7 +49,7 @@ class NotificationService {
   /// Asks the user for permission to show notifications.
   /// On Android 13 and newer this shows the system permission dialog.
   static Future<bool> requestPermission() async {
-    if (kIsWeb) return false;
+    if (kIsWeb) return requestWebNotificationPermission();
     await init();
 
     final android = _plugin.resolvePlatformSpecificImplementation<
@@ -70,6 +77,10 @@ class NotificationService {
     required String title,
     required String body,
   }) async {
+    if (kIsWeb) {
+      showWebNotification(title, body);
+      return;
+    }
     await init();
 
     const details = NotificationDetails(

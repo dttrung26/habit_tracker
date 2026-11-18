@@ -11,6 +11,8 @@ void showErrorToast(String message) {
     gravity: ToastGravity.BOTTOM,
     backgroundColor: Colors.red.shade700,
     textColor: Colors.white,
+    webBgColor: '#D32F2F', // colour used when running in Chrome
+    webPosition: 'center',
   );
 }
 
@@ -22,6 +24,8 @@ void showSuccessToast(String message) {
     gravity: ToastGravity.BOTTOM,
     backgroundColor: Colors.green,
     textColor: Colors.white,
+    webBgColor: '#388E3C', // colour used when running in Chrome
+    webPosition: 'center',
   );
 }
 
@@ -33,6 +37,8 @@ void showInfoToast(String message) {
     gravity: ToastGravity.BOTTOM,
     backgroundColor: Colors.blueGrey.shade700,
     textColor: Colors.white,
+    webBgColor: '#455A64', // colour used when running in Chrome
+    webPosition: 'center',
   );
 }
 

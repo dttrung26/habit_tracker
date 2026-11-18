@@ -61,7 +61,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       final granted = await NotificationService.requestPermission();
       if (!granted) {
         showErrorToast(
-            'Notification permission was denied. Allow it in your phone settings.');
+            'Notification permission was denied. Allow notifications in your browser or phone settings.');
         return;
       }
     }
@@ -83,7 +83,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     final granted = await NotificationService.requestPermission();
     if (!granted) {
       showErrorToast(
-          'Notification permission was denied. Allow it in your phone settings.');
+          'Notification permission was denied. Allow notifications in your browser or phone settings.');
       return;
     }
 
