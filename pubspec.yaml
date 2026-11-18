@@ -1,0 +1,28 @@
+name: habit_tracker
+description: "Habit Tracker - build positive habits with reminders, reports and local storage."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # Packages installed in the "Create Login/Registration" lab
+  shared_preferences: ^2.3.0       # local storage (persistence)
+  fluttertoast: ^8.2.4             # toast messages for errors / success
+  http: ^1.2.0                     # external API (REST Countries)
+  flutter_local_notifications: ^19.0.0  # local notifications on Android
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
